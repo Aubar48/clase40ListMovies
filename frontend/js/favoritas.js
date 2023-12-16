@@ -34,6 +34,12 @@ window.onload = async () => {
         link.textContent = "ver más";
         link.setAttribute('href', `formulario.html?movie=${movie.id}`);
 
+        // Botón (estrella) para quitar de favoritas
+        const removeFavoriteButton = document.createElement('button');
+        removeFavoriteButton.innerHTML = '⭐';
+        removeFavoriteButton.setAttribute('class', 'remove-favorite');
+        removeFavoriteButton.addEventListener('click', () => removeMovieFromFavorites(movie.id, card));
+        
         container.appendChild(card);
         card.appendChild(h1);
         card.appendChild(p);
@@ -44,6 +50,7 @@ window.onload = async () => {
         }
         card.appendChild(duracion);
         card.appendChild(link);
+        card.appendChild(removeFavoriteButton);
       });
     } catch (error) {
       console.error('Error al cargar las películas:', error);
@@ -64,4 +71,16 @@ window.onload = async () => {
   backButton.textContent = 'Volver a Inicio';
   backButton.addEventListener('click', () => window.location.href = 'home.html');
   app.appendChild(backButton);
+
+  
 };
+
+// Función para quitar una película de favoritas
+function removeMovieFromFavorites(movieId, card) {
+  const favorites = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+  const updatedFavorites = favorites.filter(id => id !== movieId);
+  localStorage.setItem('favoriteMovies', JSON.stringify(updatedFavorites));
+
+  // Eliminar la tarjeta de la vista
+  card.remove();
+}

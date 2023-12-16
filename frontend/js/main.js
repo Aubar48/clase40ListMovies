@@ -76,6 +76,7 @@ const toggleFavorite = (movieId, card, button) => {
     card.style.backgroundColor = 'lightgreen'; // Opcional: Cambiar el color de fondo para indicar que es favorita
     button.textContent = '⭐';
     alert('Película marcada como favorita');
+    location.reload()
   } else {
     // Si ya está en favoritos, quitarla
     favorites.splice(index, 1);
