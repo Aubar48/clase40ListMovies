@@ -27,4 +27,4 @@ cd clase40ListMovies
 ```
 4. In frontend visualize for live server the page.
 
-### The server will stand up on port 5173. You can access the application in your web browser using the following URL: [http://localhost:3031/](http://localhost:3031/)
+### The server will stand up on port 3031. You can access the application in your web browser using the following URL: [http://localhost:3031/](http://localhost:3031/)
